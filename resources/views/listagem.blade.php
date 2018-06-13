@@ -13,13 +13,13 @@
 		<div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
 			<div class="d-flex justify-content-between align-items-center w-100">
 				<strong class="text-gray-dark">{{ $licitacao->name }}</strong>
-				<a class="small" href="{{ $licitacao->origin }}">Fonte</a>
+				<a class="small" target="_blank" href="{{ $licitacao->origin }}">Fonte</a>
 			</div>
 			<span class="d-block">
 				Data Abertura:
-				<strong class="text-gray-dark">{{ $licitacao->starting_date }}</strong>
+				<strong class="text-gray-dark">{{ $licitacao->starting_date or '-' }}</strong>
 			</span>
-			{!! $licitacao->object !!}
+			{!! $licitacao->object or '-' !!}
 			<p class="media-body pb-3 mb-0 border-gray">
 				<strong class="d-block text-gray-dark">Anexos: </strong>
 				<ul class="">

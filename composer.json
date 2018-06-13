@@ -6,14 +6,16 @@
     "type": "project",
     "require": {
         "php": ">=5.6.4",
-        "fabpot/goutte": "^3.2",
+        "ext-mbstring": "*",
+        "ext-zip": "*",
+        "ext-xml": "*",
         "laravel/framework": "5.3.*",
-        "symfony/css-selector": "^4.1"
+        "fabpot/goutte": "^3.2",
+        "symfony/css-selector": "~3"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
         "mockery/mockery": "0.9.*",
-        "phpunit/phpunit": "~5.0",
         "symfony/dom-crawler": "3.1.*"
     },
     "autoload": {
@@ -37,6 +39,8 @@
             "php artisan key:generate"
         ],
         "post-install-cmd": [
+            "php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
+            "php artisan key:generate",
             "Illuminate\\Foundation\\ComposerScripts::postInstall",
             "php artisan optimize"
         ],
